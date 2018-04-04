@@ -5,4 +5,5 @@ Gather's data about Reddit's front page, primarily the subreddit that a post bel
 
 To Do:
   -Process and display information about data using matplotlib
+  
   -Use MongoDB to store and process data
