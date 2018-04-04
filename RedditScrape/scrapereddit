@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Simple script to schedule a scrapy spider crawl every 15 minutes
+
+while true; do
+	curl http://localhost:6800/schedule.json -d project=RedditScrape -d spider=redditbot
+	sleep 30
+	done
