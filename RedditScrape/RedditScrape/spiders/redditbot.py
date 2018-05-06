@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 import scrapy
+from RedditScrape.items import RedditScrapeItem
+from scrapy.selector import Selector
+from scrapy.http import HtmlResponse
 
 '''
 Brady Goldsworthy
-
 Simple spider to scrape reddit
-Returns subreddit and title
-
 '''
 
 class RedditbotSpider(scrapy.Spider):
@@ -18,14 +18,15 @@ class RedditbotSpider(scrapy.Spider):
 		#extracting content from site
 		subreddit = response.css('.subreddit.hover.may-blank::text').extract()
 		title = response.css('.title.may-blank::text').extract()
+		domain = response.css('.domain a:nth-child(1)::text').extract()
+		postid = response.xpath("//div[contains(@id, 'thing_t3')]/@id").extract()
 
 		#Processing extracted info
-		for item in zip(subreddit, title):
-			#store info in dictionary
-			scraped_info = {
-				'subreddit' : item[0],
-				'title' : item[1]
-			}
-
-			#yield scraped info to scrapy
-			yield scraped_info
+		for data in zip(subreddit, title, domain, postid):
+			item = RedditScrapeItem()
+			item['subreddit'] = data[0]
+			item['title'] = data[1]
+			item['domain'] = data[2]
+			item['postid'] = data[3]
+			
+			yield item
