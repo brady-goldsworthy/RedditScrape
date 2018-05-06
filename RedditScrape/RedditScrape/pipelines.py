@@ -6,6 +6,6 @@
 # See: https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 
 
-class RedditscrapePipeline(object):
+class RedditScrapePipeline(object):
     def process_item(self, item, spider):
         return item
