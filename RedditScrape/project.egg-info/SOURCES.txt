@@ -2,6 +2,7 @@ setup.py
 RedditScrape/__init__.py
 RedditScrape/items.py
 RedditScrape/middlewares.py
+RedditScrape/models.py
 RedditScrape/pipelines.py
 RedditScrape/settings.py
 RedditScrape/spiders/__init__.py

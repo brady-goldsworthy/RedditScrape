@@ -4,5 +4,5 @@
 
 while true; do
 	curl http://localhost:6800/schedule.json -d project=RedditScrape -d spider=redditbot
-	sleep 30
+	sleep 900 #15 minutes
 	done

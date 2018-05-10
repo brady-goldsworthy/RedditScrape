@@ -8,7 +8,9 @@
 import scrapy
 
 
-class RedditscrapeItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
+class RedditScrapeItem(scrapy.Item):
+    subreddit = scrapy.Field() #subreddit name
+    title = scrapy.Field() #post title
+    domain = scrapy.Field() #link domain
+    postid = scrapy.Field() #unique post id
     pass
